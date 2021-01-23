@@ -25,4 +25,12 @@ public class ConnectionService {
             th.printStackTrace();
         }
     }
+
+    public static void rollback(Connection connection) {
+        try {
+            connection.rollback();
+        } catch (SQLException throwable) {
+            throwable.printStackTrace();
+        }
+    }
 }
