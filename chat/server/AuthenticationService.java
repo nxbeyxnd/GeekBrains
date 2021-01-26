@@ -20,6 +20,7 @@ public class AuthenticationService {
 
             connection.commit();
         } catch (Exception e) {
+            ConnectionService.rollback(connection);
             throw new RuntimeException("SWW", e);
         } finally {
             statement.close();
