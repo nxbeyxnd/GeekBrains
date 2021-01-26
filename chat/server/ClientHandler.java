@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.sql.SQLException;
 
 public class ClientHandler {
     private String name;
@@ -130,7 +131,10 @@ public class ClientHandler {
                 } else chat.broadcastMessage(String.format("[%s]: %s", name, message));
             } catch (IOException e) {
                 throw new RuntimeException("SWW", e);
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
     }
 }
+
